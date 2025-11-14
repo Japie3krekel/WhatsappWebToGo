@@ -14,6 +14,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.LocaleList;
 import android.os.Message;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
@@ -101,6 +102,7 @@ public class WebviewActivity extends AppCompatActivity implements NavigationView
     private ValueCallback<Uri[]> mUploadMessage;
     private PermissionRequest mCurrentPermissionRequest;
     private String mCurrentDownloadRequest = null;
+    private String mDefaultLocale = Locale.getDefault().getLanguage();              // here for manually changing locale in the future
 
 
     @Override
@@ -463,6 +465,12 @@ public class WebviewActivity extends AppCompatActivity implements NavigationView
     private void showToast(int resId) {
         this.runOnUiThread(() -> Toast.makeText(this, getString(resId), Toast.LENGTH_LONG).show());
     }
+
+    /*      wip
+    private void changeLocale() {
+
+    }
+    */
 
     private void showSnackbar(int resId) {
         this.runOnUiThread(() -> {
